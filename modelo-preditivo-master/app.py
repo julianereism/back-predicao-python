@@ -21,7 +21,7 @@ def api_fraude():
         # Coletar dados do formulário
         compra_online = int(request.form.get("compra-online"))
         distancia_casa = float(request.form.get("distancia-casa"))
-        distancia_ultima_transacao = int(request.form.get("distancia-ultima-transacao"))
+        distancia_ultima_transacao = float(request.form.get("distancia-ultima-transacao"))
         loja_repetida = int(request.form.get("loja-repetida"))
         razao_media_compras = float(request.form.get("razao-media-compras"))
         uso_chip = int(request.form.get("uso-chip"))
@@ -38,6 +38,7 @@ def api_fraude():
 
         # Fazer predição
         previsao = model.predict(features)[0]
+        
 
         # Enviar para o Firestore
         dados = {
@@ -51,7 +52,6 @@ def api_fraude():
             "fraude": fraude,
             "cidade": cidade,
             "bairro": bairro,
-            "risco-fraude-previsto": float(previsao),
             "data_fraude": data_fraude,
         }
 
