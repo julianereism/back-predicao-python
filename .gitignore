@@ -1,0 +1,6 @@
+# Virtualenv
+modelo-preditivo-master/.venv/
+
+
+# Firebase sensitive data
+modelo-preditivo-master/dados-para-predicao-firebase-adminsdk-fbsvc-03619f1be6.json
